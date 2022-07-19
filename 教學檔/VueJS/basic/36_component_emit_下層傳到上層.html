@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <!-- 1 -->
+        <!-- <my-button></my-button> -->
+
+        <!-- 2, 3, 4 -->
+        <my-button @my-emit="myClick"></my-button>
+    </div>
+
+    <script> 
+        // global component
+        Vue.component('my-button',{
+            template: `<button @click="clicked"> Click me!</button>`,
+            methods: {
+                clicked(){
+                    // 1 
+                    // alert('Hi, Child!')
+
+                    // 2 沒有傳參數
+                    // this.$emit('my-emit')   // 發出自訂事件，但沒有傳參數
+
+                    // 3 有傳參數
+                    // this.$emit('my-emit', 100)  // 發出自訂事件，並且傳送一個值
+
+                    // 4
+                    this.$emit('my-emit', 100, 200, 300)  // 發出自訂事件，並且傳送好幾個值
+
+                },
+            },
+        })
+
+        let vm = new Vue({ 
+            el: '#app', 
+            data: {
+               
+            },
+            methods: {
+                // 2
+                // myClick(){
+                //     alert(`Hi, Parent!`)
+                // },
+
+                // 3
+                // myClick(x){
+                //     alert(`Hi, Parent! Give me ${x} dollars.`)
+                // },
+
+                // 4
+                myClick(x, y, z){
+                    alert(`Hi, Parent! Give me ${x} or ${y} or ${z} dollars.`)
+                },
+            },
+        })
+    </script>
+</body>
+</html>

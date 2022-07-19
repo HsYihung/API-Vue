@@ -1,0 +1,26 @@
+狀態管理 (vuex)
+
+    為何要使用 vuex?
+        1. 處理複雜的組件溝通(沒有直接關係)
+        2. 可以管理其他組件的狀態
+
+        Vuex(Vue) === Redux(React)
+    ---------------------------------------------------------------------------------------------
+    1. 使用單一檔案組件開發
+       - 安裝
+            命令提示字元，將目標移到 D:\Web\VueJS\vue-lessons>
+            指令: npm i -S vuex@3 (npm 幫你從雲端下載 vuex)
+                  npm run dev
+
+            tips: Vue2 ---> vuex@3
+                  Vue3 ---> vuex@4
+                  最新版 --> vuex@next
+
+    2. 當成一般網頁的方式撰寫，直接引入 vue 和 vuex 的 CDN
+       - Vue2
+         <script src="https://unpkg.com/vue@2"></script>
+         <script src="https://unpkg.com/vuex@3"></script>
+        
+       - Vue3
+         <script src="https://unpkg.com/vue@3"></script>
+         <script src="https://unpkg.com/vuex@4"></script>

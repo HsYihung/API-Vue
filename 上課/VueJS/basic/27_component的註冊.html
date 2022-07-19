@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+        h1 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <my-component></my-component>
+        <!-- <My-Component></My-Component>
+        <myComponent></myComponent>
+        <MyComponent></MyComponent> -->
+    </div>
+
+    <div id="app2">
+        <my-component></my-component>
+    </div>
+
+
+    <script>
+        Vue.component("my-component", { template: `<h2 style="color :red">My Components</h2>` })
+
+        new Vue({
+            el: "#app",
+            data: {
+
+            },
+            methods: {
+
+            },
+            computed: {
+
+            },
+            components: {      //local component
+                // 'my-component': {
+                //     template: `<h2 style="color :red">My Components</h2>`,
+                // },
+                myComponent: {
+                    template: `<h2 style="color :green">My Components</h2>`,
+                },
+                // MyComponent: {
+                //     template: `<h2 style="color :blue">My Components</h2>`,
+                // },
+            },
+        })
+
+        new Vue({
+            el: "#app2",
+        })
+    </script>
+</body>
+
+</html>

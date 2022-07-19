@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <!-- <input type="file">  不能使用 v-model -->
+        <input type="file" @change="fileChange">
+        <p></p>
+        <img :src="imgURL">
+    </div>    
+
+    <script>    
+        new Vue({ 
+            el: '#app',
+            data: {  // 變數放這裡!
+                imgURL: '',
+            },
+            methods: {  // 函數『大部分』放這裡!
+                fileChange(e){
+                    let file = e.target.files[0]
+                    // let file = e.target.files.item(0)
+                    // console.log(file);
+
+                    // 參考 5_imageRead.html + 6_new.js
+                    let readFile = new FileReader()
+                    readFile.readAsDataURL(file)
+                    // 寫法 1
+                    // readFile.addEventListener('load', () => {
+                    //     let image = document.getElementById('image')
+                    //     this.imgURL = readFile.result
+                    // })
+
+                    // 寫法 2
+                    readFile.addEventListener('load', this.loadImage)
+                },
+                loadImage(e){
+                    this.imgURL = e.target.result
+                },
+            },
+        })
+    </script>
+</body>
+</html>

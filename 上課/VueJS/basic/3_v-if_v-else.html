@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <h2>What did you get in VueJs?</h2>
+        Yoyr Score :<input type="text" v-model="score">
+
+        <p v-if="score<0||score>100">Invalid</p>
+        <p v-else-if="score>=70">PASS!</p>
+        <p v-else>It's hard to pass.</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                message: 'Hello!',
+                score: 100,
+                loading: false
+            },
+        })
+    </script>
+</body>
+
+</html>

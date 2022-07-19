@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <counter :init="outerCount"></counter>
+    </div>
+
+    <script> 
+        // global component
+        Vue.component('counter',{
+            // props 大部分是陣列
+            // props: ['init'], 
+
+            // 也可以是物件
+            props: {
+                // init: Number,
+                init: {
+                    type: Number,
+                    default: 123,     // default(){return 即時運算的結果},
+                    validator(val){
+                        return val < 20
+                    },
+                },
+
+                // 官網: https://cn.vuejs.org/v2/guide/components-props.html#Prop
+                propA: Number,                
+                propB: [String, Number],    // 多個可能的型態
+                propC: {    // 必填字串
+                    type: String,
+                    required: true
+                },
+                propD: {    // 帶有預設值的數值
+                    type: Number,
+                    default: 100
+                },
+                propE: {    // 帶有預設值的物件
+                    type: Object,
+                            // 物件或字串的初值是即時運算的結果
+                    default: function () {
+                        return { message: 'hello' }
+                    }
+                },
+                propF: {    // 定義驗證方式
+                    validator: function (value) {
+                            // 判斷的值必須是以下某一個字串
+                        return ['success', 'warning', 'danger'].indexOf(value) !== -1
+                    }
+                }
+            },
+
+            data(){
+                return {
+                    // innerCount: 0,   
+                    innerCount: this.init,   // 此處的初值由上層取得
+                }
+            },
+            template: `
+                <div>
+                    <button @click="innerCount+=1"> Add </button>
+                    <h2>counter: {{innerCount}}</h2>
+                </div>
+            `,
+
+        })
+
+        let vm = new Vue({ 
+            el: '#app', 
+            data: {
+                outerCount: 100,
+            },
+        })
+    </script>
+</body>
+</html>

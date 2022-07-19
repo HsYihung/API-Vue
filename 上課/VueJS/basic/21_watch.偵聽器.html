@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model.lazy.number="num">
+        <h2>{{numSqure}}</h2>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                num: 0,
+            },
+            methods: {
+
+            },
+            computed: {
+                numSqure() {
+                    return Math.pow(this.num, 2)
+                },
+            },
+            watch: {
+                // num(newValue, oldValue) {
+                //     console.log(oldValue)
+                //     console.log(newValue);
+                // },
+                numSqure(newValue, oldValue) {
+                    console.log(oldValue)
+                    console.log(newValue);
+                },
+                num: {
+                    handler(newValue, oldValue) {
+                        console.log(oldValue)
+                        console.log(newValue);
+                    },
+                    immediate: true,
+                    deep: false,
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

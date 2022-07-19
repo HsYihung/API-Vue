@@ -1,0 +1,46 @@
+免費 + 付費圖庫
+https://www.freepik.com/
+
+https://pixabay.com/
+
+free icon
+https://www.freeiconspng.com/
+
+codrops
+https://tympanus.net/codrops/
+
+色彩選擇
+kuler
+https://color.adobe.com/zh/explore
+
+coolors
+https://coolors.co/
+
+
+[專題可能會用到的]
+html2canvas
+https://html2canvas.hertzen.com/
+
+綠界科技
+https://www.ecpay.com.tw/Service/API_Dwnld
+
+Payment Request API
+https://developer.mozilla.org/zh-TW/docs/Web/API/Payment_Request_API
+https://blog.techbridge.cc/2017/10/14/payment-request-api/
+
+email.js
+https://www.emailjs.com/
+
+leaflet 地圖套件
+https://leafletjs.com/
+
+let's encrypt
+搜尋免費的 https 服務
+
+公共運輸整合資訊流通服務平台
+https://ptx.transportdata.tw/PTX/
+
+JSON viewer
+https://jsonformatter.org/json-viewer
+
+中央氣象局氣象資料開放平臺

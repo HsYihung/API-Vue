@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+        h1 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <my-button @my-emit="myClick"></my-button>
+    </div>
+
+
+    <script>
+        Vue.component('my-button', {
+            data() {
+                return {
+                }
+            },
+            props: [],
+            template: `<button @click="clicked"> Click me! </button>
+            `,
+            methods: {
+                clicked() {
+
+                    // alert('Hi Child')
+
+                    this.$emit('my-emit', 100, 300, 400);
+                },
+            },
+        })
+
+
+        new Vue({
+            el: "#app",
+            data: {
+                outerCount: 0,
+            },
+            methods: {
+                myClick(item, item2, item3) {
+                    let items = [item, item2, item3]
+                    alert(items)
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

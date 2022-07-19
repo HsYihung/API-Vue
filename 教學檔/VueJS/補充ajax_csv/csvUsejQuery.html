@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSV to table using AJAX(jQuery)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" >
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <h2 align="center">CSV to table using AJAX(jQuery)</h2>
+    <div align="center">
+        <button id="loadButton" class="btn btn-info">Load</button>
+    </div>
+    <div id="feedback" align="center"></div>
+
+    <script> 
+        $(document).ready(function(){
+            $('#loadButton').click(function(){
+                $.ajax({
+                    url: './dataSource/高雄市古蹟清冊.csv',
+                    dataType: 'text',
+                    success(res){
+                        // console.log(res);
+                        let resData = res.split(/\n|\r\n/)    // match on \n or \r\n
+                        let tableData = ``
+
+                        tableData += `<table class="table table-bordered table-striped">`
+                            for(let i = 0; i < resData.length; i++){
+                                let cellData = resData[i].split(',')
+                                tableData += `<tr>`
+                                    for(let j = 0; j < cellData.length; j++){
+                                        if(i == 0){
+                                            tableData += `<th>${cellData[j]}</th>`
+                                        }else{
+                                            tableData += `<td>${cellData[j]}</td>`
+                                        }
+                                    }
+                                tableData += `</tr>`
+                            }
+
+                        tableData += `</table>`
+
+
+                        $('#feedback').html(tableData)
+
+                    },
+                })
+
+
+
+
+
+                // $.ajax({
+                //     url: '',        // 要呼叫的網址或檔案
+                //     type: '',       // GET 或 POST
+                //     data: ,         // 要傳送到 Server 端的資料，會自動轉成 jQuery 的字串型態
+                //     dataType: '',   // 預期 server 端回傳的資料型態，xml / html / script / json / jsonp / text(csv)  
+                //     success(res){},
+                //     error(err){},
+                //     complete(){},
+                // })
+            })
+        })
+    </script>
+</body>
+</html>

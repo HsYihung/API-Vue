@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue3 first</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <h2>{{message}}</h2>
+        <button @click="clicked">Click me</button>
+    </div>
+
+    <script> 
+        // Vue.createApp({
+        //     data(){
+        //         return {
+        //             message: 'Hello, Vue3!'
+        //         }
+        //     },
+        //     methods: {
+        //         clicked(){
+        //             alert(this.message)
+        //         }
+        //     },
+        // }).mount('#app')
+
+
+        // Composition api
+
+        const { ref } = Vue       // 2. Vue3 要從 global 取出來使用
+    
+        const App = {
+            // 3. 接下來才能開始定義
+            setup() {
+                const message = ref('Hello, new Vue3!')
+                    // 語法
+                    // ref(): 任何資料型態，但無法對陣列或物件做深層監聽，要用 value 來取得資料
+                    // reactive(): 只能接受陣列或物件，並可深層監聽，也不需要使用 value 來取得資料
+                let temp = null
+                let score = 100
+                
+                const clicked = () => {  // IIFE
+                    alert(message.value)
+                }
+
+                // 4. 最後要 return 給 HTML DOM template
+                return {
+                    message, // message: message,
+                    clicked, // clicked: clicked,
+                }
+            },
+        }
+
+        // 1. 載入 vue3 之後，直接從 global vue 的 createApp 內的函數取出來使用,
+        //    在 createApp 將 App object 載入進來，再 mount div
+        Vue.createApp(App).mount('#app')
+
+        // const ans = function(){}  // IIFE
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+        .theButton {
+            background: dodgerblue;
+            color: #eee;
+            border-radius: 3px;
+        }
+
+        .noText {
+            background: rgb(0, 0, 0, 0.5);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <select v-model="year">
+            <option value='' disabled>Select year</option>
+            <option>2018</option>
+            <option>2019</option>
+            <option>2020</option>
+            <option>2021</option>
+            <option>2022</option>
+        </select>
+        <p>{{year}}</p>
+        <select v-model="years" multiple>
+            <option value='' disabled>Select year</option>
+            <option>2018</option>
+            <option>2019</option>
+            <option>2020</option>
+            <option>2021</option>
+            <option>2022</option>
+        </select> -->
+        <!-- <p>{{years}}</p> -->
+        <select v-model="selectedYear">
+            <option v-for="years in years">{{years}}</option>
+        </select>
+        <select v-model="selectedMonth">
+        </select>
+        <select v-model="selectedDay">
+        </select>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                year: '',
+                years: [2018, 2019, 2020, 2021, 2022, 2023, 2024],
+
+            },
+            methods: {
+
+            },
+            computed: {
+                selectedYear() { return new Date().getFullYear() },
+                selectedMonth() { return new Date().getFullMonth() + 1 },
+                selectedDay() { return new Date().getFullDay() }
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+        h1 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <my-button></my-button>
+        <my-counter></my-counter>
+    </div>
+
+
+    <script>
+        const bus = new Vue();
+
+        Vue.component('my-button', {
+            template: `
+            <button @click="clicked"> Add </button>
+            `,
+            methods: {
+                clicked() {
+                    bus.$emit('abc', 100)
+                },
+            }
+        })
+        Vue.component('my-counter', {
+            data() {
+                return {
+                    count: 100,
+                }
+            },
+            template: `
+                <h2> {{count}} </h2>
+            `,
+            mounted() {
+                bus.$on('abc', (payload) => this.count += payload)
+            },
+        })
+
+
+        new Vue({
+            el: "#app",
+            data: {
+                count: 0,
+            },
+        })
+
+    </script>
+</body>
+
+</html>

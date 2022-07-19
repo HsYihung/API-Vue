@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <p>Your task: <input v-model="newTask" @keyup.enter="addTask"></p>
+        <ol>
+            <li v-for="(task,index) in tasks" @click="removeTask(index)">{{task}}</li>
+        </ol>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                tasks: [],
+                newTask: '',
+            },
+            methods: {
+                addTask() {
+                    if (this.newTask != '') {
+                        this.tasks.push(this.newTask);
+                        this.newTask = '';
+                        console.log(this.tasks);
+                    }
+                },
+                removeTask(index) {
+                    this.tasks.splice(index, 1);
+                }
+            },
+            computed: {
+
+            },
+        })
+    </script>
+</body>
+
+</html>

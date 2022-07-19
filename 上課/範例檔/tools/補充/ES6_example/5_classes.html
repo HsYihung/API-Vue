@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 -- new features -- class(JS的物件導向 -- 定義類別)</title>
+</head>
+<body>
+    <script>  
+        class Person{
+            constructor(name, age, weight){
+                this.name = name;
+                this.age = age;
+                this.weight = weight;
+            }
+            displayWeight(){
+                console.log(this.weight);
+            }
+        }
+
+        let peter = new Person('Peter', 25, 70.5);
+        peter.displayWeight();
+
+        let sally = new Person('Sally', 20, 50);
+        sally.displayWeight();    
+        
+        let andy = new Person('Andy', 23, 72.6);
+        andy.displayWeight();    
+    </script>    
+</body>
+</html>

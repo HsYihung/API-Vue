@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <!-- 1 -->
+        <!-- 
+        <h2><img src="../../images/foot.gif"> About </h2>
+        <h2><img src="../../images/foot.gif"> Products </h2>
+        <h2><img src="../../images/foot.gif"> Contact </h2>
+        <h2><img src="../../images/foot.gif"> Nothing </h2>
+        <h2><img src="../../images/foot.gif"> Something </h2> 
+        -->
+
+        <!-- 2 -->
+        <!-- <h2 v-for="header in headers"><img src="../../images/foot.gif"> {{header}} </h2> -->
+
+        <!-- 3 -->
+        <template v-for="(header,index) in headers">
+            <h2><img src="../../images/foot.gif"> {{header}} <span> -- {{index}}</span></h2>
+        </template>
+    </div>
+
+    <script> 
+
+        let vm = new Vue({ 
+            el: '#app', 
+            data: {
+                headers: ['About','Products','Contact','Nothing','Something'],
+            },
+            methods: {
+               
+            },
+        })
+
+    </script>
+</body>
+</html>

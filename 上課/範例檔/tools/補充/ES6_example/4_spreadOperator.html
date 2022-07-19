@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 -- new features -- Spread Operator</title>
+</head>
+<body>
+    <script>  
+        function addNumbers(x,y,z){
+            console.log(x + y + z);
+        }
+
+        let nums = [5, 6, 7];
+        addNumbers(nums[0], nums[1], nums[2]);
+        addNumbers(...nums);  //three dots
+
+
+        let meats = ['bacon','ham'];
+        // 1
+        // let food = ['apple','kiwi','rice'];
+        // console.log(food);
+
+        // 2
+        let food = ['apple',...meats,'kiwi','rice'];
+        console.log(food);
+    </script>    
+</body>
+</html>

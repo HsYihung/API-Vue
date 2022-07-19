@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+        h1 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="content = 'name'">Name</button>
+        <button @click="content = 'date'">Date</button>
+        <button @click="content = 'lessons'">Lessons</button>
+        <button @click="content = 'apply'">Apply</button>
+        <button @click="content = 'nothing'">Do Nothing</button>
+
+        <keep-alive>
+            <component :is="content">
+            </component>
+        </keep-alive>
+
+    </div>
+
+
+    <script>
+        Vue.component('name', {
+            template: `
+                <p>
+                Your name <input type="text">
+                <p>
+            `,
+        })
+        Vue.component('date', {
+            template:
+                `
+                <p>
+                    <input type="checkbox"> Morning
+                    <input type="checkbox"> Afternoom
+                    <input type="checkbox"> Morning
+                <p>
+                `
+        })
+        Vue.component('lessons', {
+            template:
+                `
+                <p>
+                    <input type="checkbox"> HTML <br>
+                    <input type="checkbox"> CSS <br>
+                    <input type="checkbox"> JavaScript <br>
+                    <input type="checkbox"> jQuery <br>
+                    <input type="checkbox"> HTML5 <br>
+                    <input type="checkbox"> VueJS <br>
+                <p>
+                    
+                `
+        })
+        Vue.component('apply', {
+            template:
+                `
+                <p>
+                    Class : <textarea></textarea>
+                <p>
+                    
+                `
+        })
+        Vue.component('nothing', {
+            template:
+                `
+                <p>
+                   Comments: <textarea></textarea>
+                <p>
+                    
+                `
+        })
+
+
+        new Vue({
+            el: "#app",
+            data: {
+                content: 'name',
+            },
+            methods: {
+            }
+        })
+
+        new Vue({
+            el: "#app2",
+        })
+    </script>
+</body>
+
+</html>

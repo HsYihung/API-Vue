@@ -1,0 +1,32 @@
+1. Vue2 與 Vue3 相容的部分
+   官網提供的是跟 Vue2 類似的寫法 (參考 vue3.html line 15 ~ line 26)，只是 Vue3 都是組件
+
+2. Vue2 與 Vue3 相異的部分
+   Vue3 使用了 Composition API
+   - vue3.html
+   - vueRouterForVue3.html
+   - vuexForVue3.html
+
+3. Vue3 的核心(core)部分採用了 ES6 Proxy，但 IE 不支援，所以 IE 不支援  Vue3 
+
+4. Vue3 的優點
+   減少了 this 的使用
+   使用 Composition API 提供了更好的封裝方式，劃分那些資料需要被 vue 追蹤，那些不要
+
+5. 前端工程師面試問題集
+   https://h5bp.org/Front-end-Developer-Interview-Questions/translations/chinese-traditional/
+
+   Leetcode
+   https://leetcode.com/problemset/all/
+
+   AlgoExpert  
+   https://www.algoexpert.io/product?r=ads&gclid=CjwKCAjwrNmWBhA4EiwAHbjEQOM6xhj1rc6ZZ_2VZkoEoAQxw0gkIyEcyei9YTJzDOfPPSTIUSvBdBoC3LIQAvD_BwE
+
+6. JS
+   this 代表甚麼
+   closure 閉包
+   何謂同步? 非同步?
+   
+   vue-cli 的 cli 是甚麼字的縮寫? vue-cli 是甚麼? 下過甚麼指令?
+   如何用 Vue 呼叫 API?
+   使用甚麼呼叫後端 API?

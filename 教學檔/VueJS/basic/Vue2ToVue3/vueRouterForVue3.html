@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vur-router for vue3</title>
+    <script src="https://unpkg.com/vue@3"></script>    
+    <script src="https://unpkg.com/vue-router@4"></script>    
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <h2>{{message}} Vue3</h2>
+        <p>
+            <router-link to="/">Home</router-link> | 
+            <router-link to="/about">About</router-link> | 
+            <router-link to="/products">Products</router-link>
+        </p>
+        <router-view></router-view>
+    </div>    
+
+    <script>
+        const Home = {template: `<div><h3> $Home </h3></div>`}
+        const About = {template: `<div><h3> &About </h3></div>`}
+        const Products = {template: `<div><h3> %Products </h3></div>`}
+
+        const router = VueRouter.createRouter({
+            // history: VueRouter.createWebHistory(),          // 路徑拿掉 #
+            history: VueRouter.createWebHashHistory(),   // 路徑包含 #
+            routes: [
+                {path: '/', component: Home},
+                {path: '/about', component: About},
+                {path: '/products', component: Products},
+            ],
+        })
+
+        const { ref }  = Vue
+        const App = {
+            setup() {
+                const message = ref('Hello')
+
+                return {
+                    message,
+                }
+            }
+        }
+
+        Vue.createApp(App).use(router).mount('#app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        ol li{
+            font: 14px Tahoma;
+            background: #abc;
+            margin: 5px;
+            padding: 5px;
+        }
+        ol li:hover{
+            background: #cba;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <p>
+            Your task: <input v-model="newTask" @keyup.enter="addTask">
+            <!-- v-on 的修飾符 enter -->
+        </p>
+        <ol>
+            <li v-for="(task,index) in tasks" @click="removeTask(index)">{{task}}</li>
+        </ol>
+    </div>    
+
+    <script>        
+        new Vue({ 
+            el: '#app',
+            data: {  // 變數放這裡!
+                tasks: [],
+                newTask: '',
+            },
+            methods: {  // 函數『大部分』放這裡!
+                addTask(){
+                    this.tasks.push(this.newTask)
+                    this.newTask = ''
+                },
+                removeTask(index){
+                    this.tasks.splice(index,1)
+                },
+            },
+            computed: { // 函數也可以放這裡，但是放在這裡的函數，不能傳參數，一定要有傳回值(return)
+                
+            },
+        })
+    </script>
+</body>
+</html>

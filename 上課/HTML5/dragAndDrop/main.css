@@ -1,0 +1,17 @@
+#leftbox {
+    border: 5px dashed #ccc;
+    width: 240px;
+    height: 240px;
+    padding: 5px;
+    margin: 5px;
+    float: left;
+}
+
+#rightbox {
+    border: 5px dashed #abc;
+    width: 240px;
+    height: 240px;
+    padding: 5px;
+    margin: 5px;
+    float: left;
+}

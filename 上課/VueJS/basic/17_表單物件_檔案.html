@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="file" @change="fileChange">
+        <br>
+        <img :src="imgURL">
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                imgURL: '',
+            },
+            methods: {
+                fileChange(e) {
+                    let file = e.target.files[0]
+                    // console.log(file);
+
+                    let readFile = new FileReader()
+                    readFile.readAsDataURL(file)
+                    // readFile.addEventListener('load', () => {
+                    //     this.imgURL = readFile.result;
+                    // })
+                    readFile.addEventListener('load', this.loadImage)
+                },
+                loadImage(e) {
+                    this.imgURL = e.target.result;
+                }
+            },
+            computed: {
+
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model.number="x">+<input type="text" v-model.number="y"> = <span>{{z}}</span>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+
+                x: 0,
+                y: 0,
+                // z: 0
+
+            },
+            methods: {
+
+            },
+            computed: {
+                z() {
+                    return this.x + this.y
+                }
+            },
+            watch: {
+
+                // x(value) {
+                //     this.z = value + this.y
+                // },
+                // y(value) {
+                //     this.z = value + this.x
+                // }
+            }
+        })
+    </script>
+</body>
+
+</html>

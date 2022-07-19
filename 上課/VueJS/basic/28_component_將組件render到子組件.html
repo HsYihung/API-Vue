@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+        h1 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <ul>
+            <my-list></my-list>
+            <my-list></my-list>
+            <my-list></my-list>
+            <my-list></my-list>
+            <my-list></my-list>
+            <my-list></my-list>
+            <my-list></my-list>
+        </ul>
+        <select>
+            <my-select></my-select>
+        </select>
+        <table>
+            <tr>
+                <my-td></my-td>
+                <my-td></my-td>
+                <my-td></my-td>
+                <my-td></my-td>
+                <my-td></my-td>
+            </tr>
+        </table> -->
+    </div>
+
+
+    <script>
+        Vue.component('my-list', {
+            template: '<li>Hello,ul</li>'
+        })
+        Vue.component('my-select', {
+            template: "<option>Hello,Select</option>"
+        })
+        Vue.component('my-td', {
+            template: `<td>Hello, table!</td>`
+        })
+        new Vue({
+            el: "#app",
+            data: {
+
+            },
+            methods: {
+
+            },
+            computed: {
+
+            },
+            components: {
+            },
+            template:
+                `<div>
+                    <ul>
+            <my-list></my-list>
+            <my-list></my-list>
+            <my-list></my-list>
+            <my-list></my-list>
+            <my-list></my-list>
+            <my-list></my-list>
+            <my-list></my-list>
+        </ul>
+        <select>
+            <my-select></my-select>
+        </select>
+        <table>
+            <tr>
+                <my-td></my-td>
+                <my-td></my-td>
+                <my-td></my-td>
+                <my-td></my-td>
+                <my-td></my-td>
+            </tr>
+        </table>                    
+                    </div>`,
+
+        })
+
+        new Vue({
+            el: "#app2",
+        })
+    </script>
+</body>
+
+</html>

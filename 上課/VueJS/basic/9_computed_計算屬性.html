@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <h2>現在時間{{now}}</h2>
+        <p>
+            Weight:<input v-model="weight">
+        </p>
+        <p>
+            Height:<input v-model="height">
+        </p>
+        Your BMI is <span>{{calculate}}</span>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                message: 'Hello!',
+                weight: 0,
+                height: 0,
+                // BMI:this.weight/Math.pow((this.height/100),2)
+            },
+            methods: {
+
+            },
+            computed: {
+                calculate() {
+                    if (this.weight > 0 && this.height > 0) {
+                        return (this.weight / Math.pow(this.height / 100, 2)).toFixed(2);
+                    }
+                    else {
+                        return 0;
+                    }
+                },
+                now() {
+                    let i = this.weight + this.height
+                    return new Date();
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

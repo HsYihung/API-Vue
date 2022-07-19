@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <ul>
+            <li v-for="num in numArray">{{num}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="(value,key) in numObject">{{key}}: {{value}}</li>
+        </ul> -->
+
+        <button @click="action">Click me</button>
+        <ul>
+            <li v-for="num in numArray">{{num}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="(value,key) in numObject">{{key}}: {{value}}</li>
+        </ul>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                numArray: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                numObject: {
+                    x: 5,
+                    y: 10,
+                    z: 15
+                }
+            },
+            methods: {
+                action() {
+                    // this.numArray.unshift(Math.max(...this.numArray) + 1);
+                    // this.numArray.unshift(Math.min(...this.numArray) - 1);
+                    // this.numArray.pop();
+                    //--------------------------------
+                    // this.numArray.push(Math.max(...this.numArray) + 1);
+                    // this.numArray.shift();
+
+                    // this.numArray.splice(5)
+                    // this.numArray.splice(5, 1)
+                    // this.numArray.splice(5, 0, 100, 200, 300)
+
+                    // this.numArray = this.numArray.filter(d => d % 2 == 0);
+                    // this.numArray = this.numArray.map(e => e * 3);
+
+                    // let sum = this.numArray.reduce((accumulator, data) => accumulator += data)
+                    // this.numArray.unshift(sum);
+
+                    // this.numArray[2] = 100;
+
+                    // this.numArray.splice(2, 1, 100)
+                    // this.$set(this.numArray, 2, 100)
+                    // this.numArray = this.numArray.filter(d => d == null);
+                    // this.numArray.splice(0)
+
+                    // this.numArray = this.numArray.slice(3, 6);
+
+                    // this.numObject.a = 7
+                    // this.numObject.x = 100
+
+                    // this.$set(this.numObject, 'x', 100)
+                    this.$set(this.numObject, 'a', 100)
+
+                }
+            },
+            computed: {
+
+            },
+            watch: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

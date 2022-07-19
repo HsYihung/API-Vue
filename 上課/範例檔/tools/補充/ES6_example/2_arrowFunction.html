@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 -- new features -- Arrow Function </title>
+</head>
+<body>
+    <script>  
+        // 1      
+        function circleArea1(r){
+            return Math.PI * r * r;
+        }
+        console.log(circleArea1(5));
+
+        // 2 改成以下
+        let circleArea2 = (r) => {
+            return Math.PI * r * r;
+        }
+        console.log(circleArea2(5));
+
+        // 3
+        let circleArea3 = r => Math.PI * r * r;
+        console.log(circleArea3(5));
+    </script>    
+</body>
+</html>

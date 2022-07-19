@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+        h1 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <todo-list></todo-list>
+    </div>
+
+
+    <script>
+        Vue.component('todo-item', {
+            props: ['xyz'],
+            template: `
+                <li>{{xyz}}</li>
+            `,
+        })
+        Vue.component('todo-input', {
+            data() {
+                return {
+                    task: '',
+                }
+            },
+            template: `
+                <form @submit.prevent="submitData">
+                    <input v-model="task">
+                    <button>Submit</button>
+                </form>
+            `,
+            methods: {
+                submitData() {
+                    this.$emit('abc', this.task)
+                    this.task = ''
+                }
+            }
+        })
+        Vue.component('todo-list', {
+            data() {
+                return {
+                    tasks: [],
+                }
+            },
+            template: `
+                <div>          
+                    <todo-input @abc="addTask"></todo-input>
+                    
+                    <ol>
+                        <todo-item v-for="(task,index) in tasks" v-bind:xyz="task" 
+                        @click.native="removeTask(index)"
+                        ><todo-item>
+                    </ol>
+                </div>
+            `,
+            methods: {
+                addTask(item) {
+                    this.tasks.push(item)
+                },
+                removeTask(index) {
+                    this.tasks.splice(index, 1);
+                }
+            }
+        })
+
+        new Vue({
+            el: "#app",
+            data: {
+                content: 'name',
+            },
+            methods: {
+            }
+        })
+
+    </script>
+</body>
+
+</html>

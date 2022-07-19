@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <ul>
+            <my-list></my-list>
+            <my-list></my-list>
+            <my-list></my-list>
+            <my-list></my-list>
+        </ul>
+        <select>
+            <my-select></my-select>
+            <my-select></my-select>
+            <my-select></my-select>
+        </select>
+        <table border="1">
+            <tr>
+                <my-td></my-td>
+                <my-td></my-td>
+                <my-td></my-td>
+            </tr>
+        </table>
+    </div>
+
+    <script> 
+        // global component
+        // Vue.component('組件名稱', {
+        //     ......
+        //     template: `定義視覺元件`,    // 實際會出現的標籤
+        // })
+
+        Vue.component('my-list', {
+            template: `<li>Hello, ul!</li>`,
+        })
+        Vue.component('my-select', {
+            template: `<option>Hello, select!</option>`,
+        })
+        Vue.component('my-td', {
+            template: `<td>Hello, table!</td>`,
+        })
+
+        let vm = new Vue({ 
+            el: '#app', 
+            data: {},
+            methods: {},
+            computed: {},
+            
+            // local component
+            // components: {},
+
+            template: `
+                <div>
+                    <ul>
+                        <my-list></my-list>
+                        <my-list></my-list>
+                        <my-list></my-list>
+                        <my-list></my-list>
+                    </ul>
+                    <select>
+                        <my-select></my-select>
+                        <my-select></my-select>
+                        <my-select></my-select>
+                    </select>
+                    <table border="1">
+                        <tr>
+                            <my-td></my-td>
+                            <my-td></my-td>
+                            <my-td></my-td>
+                        </tr>
+                    </table>
+                </div>
+            `,
+        })
+    </script>
+</body>
+</html>

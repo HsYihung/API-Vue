@@ -1,0 +1,46 @@
+            Vue 2                           Vue 3
+---------------------------------------------------------------------------
+Vue 2
+官網: https://cn.vuejs.org
+CDN: https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js
+     https://unpkg.com/vue@2
+
+Vue 3
+官網: https://vuejs.org/
+CDN: https://unpkg.com/vue@next
+     https://unpkg.com/vue@3
+---------------------------------------------------------------------------
+init        new Vue({                       Vue.createApp({}).mount('#app')
+                el: '#app',
+            })           
+---------------------------------------------------------------------------
+data        物件                            函數(方法)
+            new Vue({                       Vue.createApp({
+                el: '#app',                     data(){
+                data: {                             return{
+                    message:'',                         message:'',      
+                },                                  };
+            });                                 },
+                                            }).mount('#app');
+---------------------------------------------------------------------------
+sync修飾符  有                               沒有                               
+---------------------------------------------------------------------------
+生命週期    beforeDestroy                    beforeUnmount
+           destroyed                        unmounted 
+---------------------------------------------------------------------------
+Vue的掛載   $mount()                         mount()
+---------------------------------------------------------------------------
+template    只能有一個根節點                  不需要有唯一的根節點
+---------------------------------------------------------------------------
+vue-router  vue@2 ---> vue-router@3          vue@3 ---> vue-router@4
+vuex        vue@2 ---> vuex@3                vue@3 ---> vuexr@4
+---------------------------------------------------------------------------
+
+
+1. Vue template
+2. Vue instance
+3. Vue component
+
+let n1 = 5
+let n2 = new Number(5)
+

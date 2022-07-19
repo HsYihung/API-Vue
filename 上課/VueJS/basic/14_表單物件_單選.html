@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+        .theButton {
+            background: dodgerblue;
+            color: #eee;
+            border-radius: 3px;
+        }
+
+        .noText {
+            background: rgb(0, 0, 0, 0.5);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <input type="radio" name="gender" value="Male" checked>Male
+        <input type="radio" name="gender" value="Fmale">Fmale
+        <input type="radio" name="gender" value="Others">Others -->
+        <input type="radio" v-model="gender" value="Male" checked>Male
+        <input type="radio" v-model="gender" value="Fmale">Fmale
+        <input type="radio" v-model="gender" value="Others">Others
+        <p>{{gender}}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                gender: '',
+                // gender: 'Male',
+            },
+            methods: {
+
+            },
+            computed: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <img :src="imgURL" :alt="name" @click="action">
+        <p v-for="color in colors">
+            <font :color="color">{color}</font>
+        </p>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                message: 'Hello!',
+                colors: ['red', 'orange', 'yallow', 'green', 'blue', 'inbigo', 'violet'],
+                imgURL: 'https://sites.google.com/site/labixiaoxinderenwu/_/rsrc/1461805754566/home/main_animation%402x.png?height=320&width=320',
+                name: '蠟筆小新',
+            },
+            methods: {
+                action() {
+                    // alert(this.message)
+                    // alert(this.$data.message)
+                    // alert(this.$data.colors[3])
+                    this.others();
+                },
+                others() {
+                    alert('Hi, function!')
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

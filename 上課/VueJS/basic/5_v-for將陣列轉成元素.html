@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <select v-model="selectedYear">
+            <option v-for="years in years">{{years}}</option>
+        </select>
+        <select v-model="selectedMonth">
+            <option v-for="month in 12">{{month}}</option>
+        </select>
+        <select v-model="selectedDay">
+            <option v-for="day in 30">{{day}}</option>
+        </select>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                message: 'Hello!',
+                colors: ['red', 'orange', 'yallow', 'green', 'blue', 'inbigo', 'violet'],
+                months: ['January', 'February', 'March', 'April', 'May', 'June'],
+                years: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+                selectedYear: new Date().getFullYear(),
+                selectedMonth: new Date().getMonth() + 1,
+                selectedDay: new Date().getDate(),
+            }
+        })
+
+        switch (month) {
+            case 2:
+                days = (year % 4 == 0) ? 29 : 28;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                days = 30;
+                break;
+            default:
+                days = 31;
+                break;
+        }
+    </script>
+</body>
+
+</html>

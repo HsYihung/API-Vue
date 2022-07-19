@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 -- new features -- inheritance(JS的物件導向 -- 繼承)</title>
+</head>
+<body>
+    <script>  
+        class Person{
+            constructor(name, age, weight){
+                this.name = name;
+                this.age = age;
+                this.weight = weight;
+            }
+            displayName(){
+                console.log(this.name);
+            }
+            displayAge(){
+                console.log(this.age);
+            }
+            displayWeight(){
+                console.log(this.weight);
+            }
+        }
+
+        class Programmer extends Person{
+            constructor(name, age, weight, language){
+                super(name, age, weight);
+                this.language = language;
+            }
+            displayLanguage(){
+                console.log(this.language);
+            }
+        }
+
+        let peter = new Person('Peter Roberts', 25, 70, 'JavaScript');
+        peter.displayName();
+        peter.displayAge();
+        peter.displayWeight();
+        // peter.displayLanguage();   //error
+  
+        let sally = new Programmer('Sally Jones', 20, 50, 'VueJS');
+        sally.displayName();
+        sally.displayAge();
+        sally.displayWeight();
+        sally.displayLanguage();  
+        
+        let andy = new Person('Andy Wang',30);
+        andy.displayName();
+        andy.displayAge();
+    </script>    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <script src="http://unpkg.com/vue-router@3"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{message}} Vue2</h2>
+        <p>
+            <router-link to="/">Home</router-link>
+            <router-link to="/about">About</router-link>
+            <router-link to="/products">Products</router-link>
+        </p>
+        <router-view />
+    </div>
+
+
+    <script>
+        const Home = {
+            template: `<div><h3> $Home </h3></div>`,
+        }
+        const About = {
+            template: `<div><h3> &About </h3></div>`,
+        }
+        const Products = {
+            template: `<div><h3> %Products </h3></div>`,
+        }
+
+        const router = new VueRouter({
+            mode: 'history',
+            routes: [
+                {
+                    path: '/', component: Home
+                },
+                {
+                    path: '/about', component: About
+                },
+                {
+                    path: '/products', component: Products
+                },
+            ],
+        })
+
+        new Vue({
+            router,
+            el: "#app",
+            data: {
+                message: 'Hello',
+            },
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vur-router for vue2</title>
+    <script src="https://unpkg.com/vue@2"></script>    
+    <script src="https://unpkg.com/vue-router@3"></script>    
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <h2>{{message}} Vue2</h2>
+        <p>
+            <router-link to="/">Home</router-link> | 
+            <router-link to="/about">About</router-link> | 
+            <router-link to="/products">Products</router-link>
+        </p>
+        <router-view></router-view>
+    </div>    
+
+    <script>
+        const Home = {template: `<div><h3> $Home </h3></div>`}
+        const About = {template: `<div><h3> &About </h3></div>`}
+        const Products = {template: `<div><h3> %Products </h3></div>`}
+
+        const router = new VueRouter({
+            mode: 'history',    // hash by default
+            routes: [
+                {path: '/', component: Home},
+                {path: '/about', component: About},
+                {path: '/products', component: Products},
+            ],
+        })
+
+        new Vue({
+
+            router,   // router: router,
+
+            el: '#app',
+            data: {
+                message: 'Hello',
+            },
+        })
+    </script>
+</body>
+</html>

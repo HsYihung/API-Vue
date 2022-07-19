@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local</title>
+</head>
+
+<body>
+    <button onclick="showStorage()">
+        click me
+    </button>
+
+    <script>
+        function showStorage() {
+            if (localStorage['username'] == null) {
+                let name = prompt(`What's your username?`);
+                localStorage['username'] = name;
+            } else {
+                alert(localStorage['username']);
+            }
+        }
+    </script>
+</body>
+
+</html>

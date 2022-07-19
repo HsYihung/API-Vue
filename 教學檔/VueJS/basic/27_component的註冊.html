@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+       <my-component></my-component>  <!--kebab-case-->
+    </div>
+
+    <div id="app2">
+        <my-component></my-component>
+    </div>
+
+    <script> 
+        // global component
+        // Vue.component('組件名稱', {
+        //     ......
+        //     template: `定義視覺元件`,    // 實際會出現的標籤
+        // })
+
+        Vue.component('my-component', {
+            template: `<h2 style="color: maroon;">My Component</h2>`,
+        })
+
+        let vm = new Vue({ 
+            el: '#app', 
+            data: {},
+            methods: {},
+            computed: {},
+            
+            // local component
+            // components: {    // kebab-case --> camelCase --> PascalCase
+            //     'my-component': {   // kebab-case
+            //         template: `<h2 style="color: red;">My Component</h2>`,
+            //     },
+            //     MyComponent: {   // PascalCase
+            //         template: `<h2 style="color: blue;">My Component</h2>`,
+            //     },
+            //     myComponent: {   // camelCase
+            //         template: `<h2 style="color: green;">My Component</h2>`,
+            //     },
+            // },
+        })
+
+        new Vue({
+            el: '#app2',
+        })
+
+    </script>
+</body>
+</html>

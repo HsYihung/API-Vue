@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <img :src="imgURL" :alt="name" @click="action">
+        <hr>
+        <p v-for="color in colors">
+            <font :color="color">{{color}}</font>
+        </p>
+    </div>    
+
+    <script>
+        // JS context(情境): this代表執行當下的外層物件，所以 this 在執行當下才有意義
+        // function test(){
+        //     console.log(this);
+        // }
+        // 呼叫: test()
+        // 結果: window 物件
+
+        // let man = {
+        //     name: 'Peter',
+        //     sayHello(){
+        //         console.log(this);
+        //     }
+        // }
+        // 呼叫: man.sayHello()
+        // 結果: man 物件
+
+        // 箭頭函數: 內部的 this 和外部的 this 相同        
+        
+        // new Vue()裡面的 this 都代表 Vue 物件
+
+        new Vue({ 
+            el: '#app',
+            data: {  // 變數放這裡!
+                message: 'Hello!',
+                colors: ['red','orange','yellow','green','blue','indigo','violet'],
+                imgURL: 'https://stickershop.line-scdn.net/stickershop/v1/product/24312/IOS/main@2x.png',
+                name: '蠟筆小新',
+            },
+            methods: {  // 函數『大部分』放這裡!
+                action(){
+                    // alert(this.message)
+                    // alert(this.colors)
+                    // alert(this.$el)
+                    // alert(this.$data.message)
+                    // alert(this.$data.colors[3])
+                    this.others()
+                },
+                others(){
+                    alert('Hi, function!')
+                },
+            },
+        })
+    </script>
+</body>
+</html>

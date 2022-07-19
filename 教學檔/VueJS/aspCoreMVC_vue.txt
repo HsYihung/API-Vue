@@ -1,0 +1,8 @@
+darkthread
+https://blog.darkthread.net/blog/script-n-style-in-vue-template-compilation/
+
+https://www.genesisrrios.com/en/blog/using-asp-net-core-with-vue-js/
+
+https://docs.microsoft.com/zh-tw/visualstudio/javascript/tutorial-asp-net-core-with-vue?view=vs-2022
+
+https://smlpoints.com/guide-dotnet-vue-mvc-with-web-api-developmemt.html

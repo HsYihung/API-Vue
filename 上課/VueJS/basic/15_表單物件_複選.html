@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+        .theButton {
+            background: dodgerblue;
+            color: #eee;
+            border-radius: 3px;
+        }
+
+        .noText {
+            background: rgb(0, 0, 0, 0.5);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="checkbox" v-model="interest" value="read" checked>閱讀
+        <input type="checkbox" v-model="interest" value="sleep">睡覺
+        <input type="checkbox" v-model="interest" value="game">電動
+        <input type="checkbox" v-model="interest" value="diving">潛水
+        <input type="checkbox" v-model="interest" value="trip">旅遊
+        <p>{{interest}}</p>
+        <hr>
+        <input type="checkbox" v-model="agree">我同意
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                interest: [],
+                agree: false
+            },
+            methods: {
+
+            },
+            computed: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

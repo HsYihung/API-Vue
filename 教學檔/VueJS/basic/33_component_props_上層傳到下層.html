@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <!-- 1 -->
+        <!-- <my-component message="Hello" text="VueJS"></my-component> -->
+
+        <!-- 2 -->
+        <my-component the-message="Hello" the-text="VueJS"></my-component>
+    </div>
+
+    <script> 
+        // global component
+        Vue.component('my-component',{
+            // 1
+            // props: ['message','text'],
+            // template: `<h2>{{message}} {{text}}!</h2>`,
+
+            // 2
+            props: ['the-message','the-text'],
+            template: `<h2>{{theMessage}} {{theText}}!</h2>`,
+
+        })
+
+        let vm = new Vue({ 
+            el: '#app', 
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <!-- 1. 37_component_emit_props_讓資料同步.html -->
+        <!-- <counter :init="count" @my-emit="makeSync"></counter> -->
+
+        <!-- 2. 使用 sync 讓資料同步 -->
+        <counter :init.sync="count"></counter>
+
+        <h2>new Vue: {{count}}</h2>
+    </div>
+
+    <script> 
+        // global component
+        Vue.component('counter',{
+            props: ['init'],
+            data(){
+                return {
+                    count: this.init,
+                }
+            },
+            template: `
+                <div>
+                    <button @click="count+=1"> Add </button>
+                    <button @click="sync"> Sync </button>
+                    <h2>counter: {{count}}</h2>
+                </div>
+            `,
+            methods: {
+                sync(){
+                    // 1
+                    // this.$emit('my-emit',this.count)
+
+                    // 2
+                    this.$emit('update:init',this.count)
+                },
+            },
+        })
+
+        let vm = new Vue({ 
+            el: '#app', 
+            data: {
+                count: 100,
+            },
+            methods: {
+                // 1
+                // makeSync(count){
+                //     this.count = count
+                // },
+            },
+        })
+    </script>
+</body>
+</html>

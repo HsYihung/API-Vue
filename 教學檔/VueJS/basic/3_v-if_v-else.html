@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <h2>What did you get in VueJS?</h2>
+        Your score: <input type="text" v-model="score">
+
+        <p v-if="score<0||score>100">Invalid</p>
+        <p v-else-if="score>=70">PASS!</p>
+        <p v-else>It's hard to pass.</p>
+    </div>    
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {  // 變數放這裡!
+                message: 'Hello!',
+                score: 0,
+                loading: false,
+            },
+        })
+    </script>
+</body>
+</html>

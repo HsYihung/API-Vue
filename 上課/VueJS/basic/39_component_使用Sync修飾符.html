@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+        h1 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <counter :init.syne="count"></counter>
+        <h2>new Vue :{{count}}</h2>
+    </div>
+
+
+    <script>
+        Vue.component('counter', {
+            data() {
+                return { count: this.init, }
+            },
+            props: ['init'],
+            template: `
+               <button @click="sync">{{count}}</button>
+            `,
+            methods: {
+                sync() {
+                    this.count += 1;
+                    this.$emit('updata:init', this.count)
+                }
+            }
+        })
+
+
+        new Vue({
+            el: "#app",
+            data: {
+                count: 5,
+            },
+            methods: {
+
+            },
+        })
+
+    </script>
+</body>
+
+</html>

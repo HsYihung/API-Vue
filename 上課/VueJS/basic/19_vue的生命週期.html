@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="count++">Add</button>
+        <button id="deleteButton">Delete</button>
+        <h2>{{count}}</h2>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                count: 0,
+            },
+            methods: {
+                removeTask(index) {
+                    console.log();
+                }
+            },
+            computed: {
+                now() {
+                    return new Date();
+                }
+            },
+            beforeCreate() {
+                console.log(`beforeCreate(): count: ${this.count}`);
+                console.log(`beforeCreate(): el: ${this.$el}`);
+                console.log(`beforeCreate(): removeTask: ${this.$methods}`);
+                console.log(`beforeCreate(): now: ${this.$computed}`);
+            },
+            created() {
+                console.log(`Create(): count: ${this.count}`);
+                console.log(`Create(): el: ${this.$el}`);
+                console.log(`beforeCreate(): removeTask: ${this.$methods}`);
+                console.log(`beforeCreate(): now: ${this.$computed}`);
+            },
+            beforeMount() {
+                console.log(`beforeMount(): el: ${this.$el}`);
+                console.log(`beforeCreate(): removeTask: ${this.$methods}`);
+                console.log(`beforeCreate(): now: ${this.$computed}`);
+            },
+            mounted() {
+                console.log(`Mount(): el: ${this.$el}`);
+                console.log(`beforeCreate(): removeTask: ${this.$methods}`);
+                console.log(`beforeCreate(): now: ${this.$computed}`);
+            },
+            beforeUpdate() {
+                console.log(`beforeUpdate(): count: ${this.count}`);
+            },
+            updated() {
+                console.log(`updated(): count: ${this.count}`);
+            },
+            beforeDestroy() {
+                console.log(`beforeDestroy(): count: ${this.count}`);
+                console.log(`beforeDestroy(): el: ${this.$el}`);
+            },
+            destroyed() {
+                console.log(`destroyed(): count: ${this.count}`);
+                console.log(`destroyed(): el: ${this.$el}`);
+            },
+        })
+
+        document.getElementById('deleteButton').addEventListener('click', function () {
+            vm.$destroy();
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+免費 + 付費圖庫
+https://www.freepik.com/
+
+https://pixabay.com/
+
+free icon
+https://www.freeiconspng.com/
+
+codrops
+https://tympanus.net/codrops/
+
+色彩選擇
+kuler
+https://color.adobe.com/zh/explore
+
+coolors
+https://coolors.co/
+
+
+[專題可能會用到的]
+html2canvas
+https://html2canvas.hertzen.com/
+
+綠界科技
+https://www.ecpay.com.tw/Service/API_Dwnld
+
+Payment Request API
+https://developer.mozilla.org/zh-TW/docs/Web/API/Payment_Request_API
+https://blog.techbridge.cc/2017/10/14/payment-request-api/
+
+email.js
+https://www.emailjs.com/
+
+leaflet 地圖套件
+https://leafletjs.com/

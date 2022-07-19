@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+        .theButton {
+            background: dodgerblue;
+            color: #eee;
+            border-radius: 3px;
+        }
+
+        .noText {
+            background: rgb(0, 0, 0, 0.5);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="enlarge">Enlarge</button>
+        <button @click="shrink">Shrink</button>
+        <h2 :style="changeSize">Lorem ipsum dolor</h2>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                size: 16,
+            },
+            methods: {
+                enlarge() {
+                    console.log(this.size);
+                    this.size += 1;
+                },
+                shrink() {
+                    this.size -= 1;
+                }
+            },
+            computed: {
+                changeSize() {
+                    return { fontSize: this.size + 'px' }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

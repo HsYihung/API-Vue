@@ -1,0 +1,108 @@
+<html>
+
+<head>
+    <title>Marker Clusterer</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 700px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Marker Clusterer</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtVnIXm-IWFLMzIL_XlbCjLyQjSuEVVhk&callback=initMap&v=weekly"
+        defer></script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+    <script src="buildMakers.js"></script>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: { lat: 22.638222392604195, lng: 120.33511253253796 },
+            });
+            const infoWindow = new google.maps.InfoWindow({
+                content: "",
+                disableAutoPan: true,
+            });
+            // Create an array of alphabetical characters used to label the markers.
+
+            // Add some markers to the map.
+
+            const markers = mapMsg.map((e) => {
+                const marker = new google.maps.Marker({
+                    position: { lat: e.lat, lng: e.lng },
+                    label: e.Name,
+                    title: e.title,
+                });
+
+                // markers can only be keyboard focusable when they have click listeners
+                // open info window when marker is clicked
+                const content = `<div>Name : ${e.Name}</div>`;
+                marker.addListener("click", () => {
+                    infoWindow.setContent(content);
+                    infoWindow.open(map, marker);
+                });
+                return marker;
+            });
+
+            // Add a marker clusterer to manage the markers.
+            const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
+            // new MarkerClusterer({ markers, map });
+        }
+
+        const locations = [
+            {
+                lat: 22.64655, lng: 120.28653
+            },
+            {
+                lat: 22.65132
+                , lng: 120.30388
+            },
+            {
+                lat: 22.63584
+                , lng: 120.29416
+            },
+            {
+                lat: 22.65271
+                , lng: 120.30313
+            },
+            {
+                lat: 22.63872
+                , lng: 120.29387
+            },
+            {
+                lat: 22.63996
+                , lng: 120.32239
+            },
+        ];
+
+        window.initMap = initMap;
+    </script>
+</body>
+
+</html>

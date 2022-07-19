@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <!-- <button @click="update"> Add </button> -->
+        <button @click="count+=1"> Add </button>
+        <button id="deleteButton"> Delete </button>
+        <h2>{{count}}</h2>
+    </div>    
+
+    <script> 
+        let vm = new Vue({ 
+            el: '#app',
+            data: {  // 變數放這裡!
+                count: 0,
+            },
+            methods: {  // 函數『大部分』放這裡!
+                // update(){
+                //     this.count += 1
+                // },
+            },
+            beforeCreate() {
+                console.log(`beforeCreate(): count: ${this.count}`);
+                console.log(`beforeCreate(): $el: ${this.$el}`);
+            },
+            created() {  // 常用
+                console.log(`created(): count: ${this.count}`);
+                console.log(`created(): $el: ${this.$el}`);
+            },
+            beforeMount() {
+                console.log(`beforeMount(): $el: ${this.$el}`);
+            },
+            mounted() {  // 常用
+                console.log(`mounted(): $el: ${this.$el}`);
+            },
+            beforeUpdate() {
+                console.log(`beforeUpdate(): count: ${this.count}`);
+            },
+            updated() {  // 常用
+                console.log(`updated(): count: ${this.count}`);
+            },
+            beforeDestroy() {
+                console.log(`beforeDestroy(): count: ${this.count}`);
+            },
+            destroyed() {
+                console.log(`destroyed(): count: ${this.count}`);
+            },
+        })
+
+        document.getElementById('deleteButton').addEventListener('click',function(){
+            vm.$destroy()
+        })
+    </script>
+</body>
+</html>

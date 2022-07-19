@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <ul>
+            <!-- <li v-for="color in colors" v-on:click="showColor(color)">{{color}}</li> -->
+            <li v-for="color in colors" @click="showColor(color)">{{color}}</li>
+        </ul>
+    </div>    
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {  // 變數放這裡!
+                message: 'Hello!',
+                colors: ['red','orange','yellow','green','blue','indigo','violet'],
+            },
+            methods: {  // 函數『大部分』放這裡!
+                showColor(theColor){
+                    alert(`Your selected: ${theColor}`)
+                },
+            },
+        })
+        // for(let i = 0; i < 5; i++){}  // 處理陣列
+        // for(let key in 物件或陣列){}   // 處理物件或陣列
+    </script>
+</body>
+</html>

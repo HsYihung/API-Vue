@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"> <!-- HTML DOM template-->
+        <button @click="content='name'"> Name </button>
+        <button @click="content='date'"> Date </button>
+        <button @click="content='lessons'"> Lessons </button>
+        <button @click="content='apply'"> Apply </button>
+        <button @click="content='nothing'"> Do Nothing </button>
+
+        <!-- 動態決定要出現哪一個組件? 透過 component 元素，去指定屬性 is -->
+        <keep-alive>
+            <component :is="content"></component>        
+        </keep-alive>
+    </div>
+
+    <script> 
+        // global component
+        Vue.component('name', {            
+            template: `
+                <p>
+                    Your name: <input type="text">
+                </p>
+            `,
+        })
+        Vue.component('date', {            
+            template: `
+                <p>
+                    <input type="checkbox"> Morning
+                    <input type="checkbox"> Afternoon
+                    <input type="checkbox"> Morning
+                </p>
+            `,
+        })
+        Vue.component('lessons', {            
+            template: `
+                <p>
+                    <input type="checkbox"> HTML <br>
+                    <input type="checkbox"> CSS <br>
+                    <input type="checkbox"> JavaScript <br>
+                    <input type="checkbox"> jQuery <br>
+                    <input type="checkbox"> HTML5 <br>
+                    <input type="checkbox"> VueJS
+                </p>
+            `,
+        })
+        Vue.component('apply', {            
+            template: `
+                <p>
+                    Your choice: <textarea></textarea>
+                </p>
+            `,
+        })
+        Vue.component('nothing', {            
+            template: `
+                <p>
+                    Comments: <textarea></textarea>
+                </p>
+            `,
+        })
+
+        let vm = new Vue({ 
+            el: '#app', 
+            data: {
+                content: 'name',
+            },
+        })
+    </script>
+</body>
+</html>

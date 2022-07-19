@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+        h1 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="outerCount+=1">{{outerCount}}</button>
+        <counter :init="outerCount"></counter>
+    </div>
+
+
+    <script>
+        Vue.component('counter', {
+            data() {
+                return {
+                    innerCount: this.init
+                }
+            },
+            props: {
+                init: {
+                    type: Number,
+                    default: 123,
+                    validator(val) {
+                        return val < 20;
+                    },
+                },
+            },
+            template: `
+            <button @click="innerCount+=1">{{innerCount}}</button>
+            `,
+        })
+
+
+        new Vue({
+            el: "#app",
+            data: {
+                outerCount: 0,
+            },
+            methods: {
+            }
+        })
+
+    </script>
+</body>
+
+</html>

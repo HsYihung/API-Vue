@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 沒有直接關係的組件要如何溝通?
+        1. 將會影響彼此的值, 放在彼此的 parent component -- 41_沒有直接關係的組件溝通1
+
+        2. event bus -- 本程式
+           透過共同的 event bus:
+           - 一個組件發出自訂事件: bus.$emit('自訂事件')
+           - 另一個組件聆聽該事件: bus.$on('自訂事件',() => {})
+
+        3. vuex -- 47_沒有直接關係的組件溝通3 
+    -->
+    <div id="app"> <!-- HTML DOM template-->
+       <my-button></my-button>
+       <my-counter></my-counter>
+    </div>
+
+    <script> 
+        const bus = new Vue();  // 建立 event bus
+
+        Vue.component('my-button',{
+            template: `<button @click="clicked"> Add </button>`,
+            methods: {
+                clicked(){
+                    // 1
+                    // bus.$emit('abc')   // abc 是自訂事件
+
+                    // 2 如果有帶參數
+                    bus.$emit('abc', 10)   
+                },
+            },
+        })
+
+        Vue.component('my-counter',{
+            data(){
+                return {
+                    count: 0,
+                }
+            },
+            template: `<h2> {{count}} <h2>`,
+
+            // 在 mounted 的時候聆聽該事件
+            mounted() {
+                // 1
+                // bus.$on('abc',() => this.count += 1)
+
+                // 2
+                bus.$on('abc', payload => this.count += payload)
+            },
+        })
+
+
+        let vm = new Vue({ 
+            el: '#app', 
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+路由器 (vue-router)
+
+    為何要使用 vue-router?
+        1. 我們使用 Vue 來建立各種組件，可以用 v-if, v-else 來選擇頁面(組件)，也可以用選單的方式來決定頁面，這些就是SPA(Single Page Application)的操作
+        2. 如果點擊某個頁面就會連結不同網址；或從不同網址進來就可以執行該頁面
+
+        以上的要求， vue-router 可以輕易做到
+    ---------------------------------------------------------------------------------------------
+    1. 使用單一檔案組件開發
+       - 安裝
+            命令提示字元，將目標移到 D:\Web\VueJS\vue-lessons>
+            指令: npm i -S vue-router@3 (npm 幫你從雲端下載 vue-router)
+                  npm run dev
+
+            tips: Vue2 ---> vue-router@3
+                  Vue3 ---> vue-router@4
+                  最新版 --> vue-router@next
+
+       - 到 main.js 或 App.vue 去 import
+         import Vue from 'vue'
+         import VueRouter from 'vue-router'
+
+         Vue.use(VueRouter)
+
+    2. 當成一般網頁的方式撰寫，直接引入 vue 和 vue-router 的 CDN
+       - Vue2
+         <script src="https://unpkg.com/vue@2"></script>
+         <script src="https://unpkg.com/vue-router@3"></script>
+        
+       - Vue3
+         <script src="https://unpkg.com/vue@3"></script>
+         <script src="https://unpkg.com/vue-router@4"></script>

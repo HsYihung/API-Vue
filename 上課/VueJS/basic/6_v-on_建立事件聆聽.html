@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="color in colors" v-on:click="showColor(color)">{{color}}</li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                message: 'Hello!',
+                colors: ['red', 'orange', 'yallow', 'green', 'blue', 'inbigo', 'violet'],
+            },
+            methods: {
+                showColor(theColor) { alert(`Your selected: ${theColor}`) },
+            },
+        })
+    </script>
+</body>
+
+</html>

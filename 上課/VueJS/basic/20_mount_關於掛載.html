@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>hi</h2>
+    </div>
+    <!-- <div id="app2">
+        <h2>{{message}}</h2>
+    </div> -->
+
+    <script>
+        // new Vue({
+        //     el: "#app",
+        //     data: {
+        //         message: 'hi'
+        //     },
+        //     methods: {
+
+        //     },
+        //     computed: {
+
+        //     },
+        //     beforeMount() {
+        //         console.log(`beforeMount(): el: ${this.$el}`);
+        //     },
+        //     mounted() {
+        //         console.log(`Mount(): el: ${this.$el}`);
+        //     }
+        // })
+
+        // let vm = new Vue(
+        //     {
+        //         data: {
+        //             message: 'Hello, munt!'
+        //         }
+        //     }
+        // )
+        // vm.$mount('#app')
+
+        // new Vue(
+        //     {
+        //         data: {
+        //             message: `Hello, munt!`
+        //         },
+        //         mounted() {
+        //             console.log(this.$el);
+        //         },
+        //     }
+        // ).$mount('#app2')
+
+
+        // new Vue({
+        //     el: '#app2',
+        // })
+
+        let vm = new Vue(
+            {
+                data: {
+                    message: 'Hello, template!'
+                },
+                template: `
+                    <div>
+                        <h2 style=color:red;>{{message}}<h2>
+                    <div>
+                `,
+            }
+        ).$mount('#app')
+
+    </script>
+</body>
+
+</html>

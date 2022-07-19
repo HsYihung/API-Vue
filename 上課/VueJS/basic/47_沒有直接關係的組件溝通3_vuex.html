@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <script src="http://unpkg.com/vuex@3"></script>
+    <!-- <script scr="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.5/vue.js"></script> -->
+    <style>
+        h1 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="addCount">Add</button>
+        <h2>{{count}}</h2>
+    </div>
+
+
+    <script>
+        const store = new Vuex.Store({
+            state: {
+                count: 0,
+                x: 100,
+                y: true,
+                z: new Date(),
+            },
+            mutations: {
+                addStoreCount(state) {
+                    state.count += 1
+                }
+            },
+            getter: {
+
+            },
+            actions: {
+
+            }
+        })
+
+        new Vue({
+            store,
+            el: "#app",
+            data: {
+                // count: 0,
+            },
+            methods: {
+                addCount() {
+                    this.$store.commit('addStoreCount')
+                }
+            },
+            computed: {
+                count() {
+                    return this.$store.state.count
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
